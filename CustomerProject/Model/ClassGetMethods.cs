@@ -25,7 +25,6 @@ namespace CustomerProject.Model
                     OracleDbType = OracleDbType.RefCursor,
                     Direction = ParameterDirection.ReturnValue
                 };
-
                 (dtRes, errRes) = clsDbConfig.FillDT(query, new OracleParameter[] { V_RES });
                 if (!string.IsNullOrWhiteSpace(errRes))
                     return (dtRes, errRes);
