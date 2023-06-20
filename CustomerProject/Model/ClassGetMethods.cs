@@ -12,7 +12,6 @@ namespace CustomerProject.Model
     public class ClassGetMethods : IGetMethods
     {
         private readonly ClassDbConfig clsDbConfig = new ClassDbConfig();
-
         public (DataTable dt, string err) GetCustomer()
         {
             var dtRes = new DataTable();
