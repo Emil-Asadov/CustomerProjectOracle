@@ -35,7 +35,6 @@ namespace CustomerProject.Model
             {
                 errRes = ex.Message;
             }
-
             return (dtRes, errRes);
         }
 
