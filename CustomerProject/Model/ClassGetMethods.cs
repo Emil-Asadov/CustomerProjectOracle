@@ -92,7 +92,6 @@ namespace CustomerProject.Model
             {
                 errRes = ex.Message;
             }
-
             return (fullNameOut, errRes);
         }
 
