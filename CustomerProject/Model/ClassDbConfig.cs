@@ -135,7 +135,6 @@ namespace CustomerProject.Model
                     con.Dispose();
                 }
             }
-
             return (resOut, errOut);
         }
 
