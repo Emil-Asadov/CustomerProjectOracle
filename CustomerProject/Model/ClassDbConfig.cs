@@ -1,6 +1,7 @@
 ﻿using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,9 @@ namespace CustomerProject.Model
         public OracleConnection con { get; set; }
         public string GetConnectionString()
         {
-            var connectionString = $"Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = DESKTOP-L7Q1T20)(PORT = 1521))(CONNECT_DATA =(SERVER = dedicated)(SERVICE_NAME = orcl)));Password=Az123987;User ID=RBEMIL";
+            var connectionString = string.Empty;
+            //connectionString = $"Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = DESKTOP-L7Q1T20)(PORT = 1521))(CONNECT_DATA =(SERVER = dedicated)(SERVICE_NAME = orcl)));Password=Az123987;User ID=RBEMIL";
+            connectionString = ConfigurationManager.ConnectionStrings["constring"].ConnectionString;
             return connectionString;
         }
         public (OracleConnection conRes, string errRes) GetConnection()
@@ -32,7 +35,7 @@ namespace CustomerProject.Model
             return (con, errOut);
         }
 
-        public (DataTable dtRes, string errRes) FillDT(string query, OracleParameter[] parameterCollection=null)
+        public (DataTable dtRes, string errRes) FillDT(string query, OracleParameter[] parameterCollection = null)
         {
             var errOut = string.Empty;
             var dtOut = new DataTable();
